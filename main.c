@@ -6,19 +6,22 @@
 
 int main(int argc, char *argv[]) {
 	
-	int i =10;
-	int*ptr = &i;
+	char *pc;
+	int *pi;
+	double *pd;
 	
+	pc = (char*)10000;
+	pi = (int*)10000;
+	pd = (double*)10000;
 	
-	printf("i = %d, pi : %p\n", i, ptr);
+	printf("before : pc = %d, pi = %d, pd = %d\n", pc, pi, pd);
 	
+	pc++;
+	pi++;
+	pd++;
 	
-	(*ptr)++;
-	printf("i = %d, pi : %p\n", i, ptr);
-	
-	*ptr++;
-	printf("i = %d, pi : %p\n", i, ptr);
-	
+	printf("after : pc = %d, pi = %d, pd = %d\n", pc, pi, pd);
+
 	
 	return 0;
 }
