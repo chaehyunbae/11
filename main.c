@@ -4,24 +4,52 @@
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 
+void print_image(int a[5][5])
+{
+	int i, j;
+	int *ptr;
+	
+	ptr=&a[0][0];
+	for (i=0;i<5;i++) {
+		for(j=0;j<5;j++) {
+		
+		printf("%d", a[i][j]);
+		
+		}
+		printf("\n");
+	}
+}
+
+void brighten_image(int a[5][5])
+{
+	int i, j;
+	int *ptr;
+	
+	ptr=(int*)a[0];
+	for (i=0;i<5;i++) {
+		for(j=0;j<5;j++) {
+			*ptr +=10;
+			ptr++;
+		}
+	}
+}
+
+	
 int main(int argc, char *argv[]) {
 	
-	char *pc;
-	int *pi;
-	double *pd;
+	int image[5][5]={
+		{10, 20, 30, 40, 50},
+		{10, 20, 30, 40, 50},
+		{10, 20, 30, 40, 50},
+		{10, 20, 30, 40, 50},
+		{10, 20, 30, 40, 50},
+	};
 	
-	pc = (char*)10000;
-	pi = (int*)10000;
-	pd = (double*)10000;
-	
-	printf("before : pc = %d, pi = %d, pd = %d\n", pc, pi, pd);
-	
-	pc++;
-	pi++;
-	pd++;
-	
-	printf("after : pc = %d, pi = %d, pd = %d\n", pc, pi, pd);
+	print_image(image);
+	brighten_image(image);
+	print_image(image);
 
+		
 	
 	return 0;
 }
